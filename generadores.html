@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>segundo ejercicio</title>
+    <script>
+    /* ejemplo de recorrido
+        function*rango(inicio, fin, incremento){
+            while (inicio<fin) {
+                yield inicio
+                inicio+= incremento
+            }
+        }
+
+        for(let i of rango(0, 10, 2)){
+            console.log(i)//0, 2, 4, 6, 8. Trae hasta 8 por la condicion del while 
+        }*/
+        /* ejemplo numeros cuadrado
+        function* cuadrado(){
+            var n = 1;
+            while(true){
+                var c = n * n;
+                n++;
+                yield c; //realiza la misma funcion que el returm pero lo almacena el el nabegador 
+            }
+        }
+
+        var gen = cuadrado();
+        console.log(gen); //suspende
+        console.log(gen.next().value);//1
+        console.log(gen.next().value);//4
+        console.log(gen.next().value);//9
+        console.log(gen.next().value);//16
+        console.log(gen.next().value);//25
+       */
+
+       //ejemplo fibonacci 
+
+       let fibonacci = {
+           *[Symbol.iterator](){
+               let pre = 0, cur = 1
+               for(;;){
+                   [pre, cur] = [cur, pre + cur]
+                   yield cur
+               }
+           }
+       }
+       for ( let n of fibonacci){
+           if(n > 1000) break
+           console.log(n);
+       }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
